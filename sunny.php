@@ -15,7 +15,7 @@
  * Plugin Name:       Sunny (Purge CloudFlare Cache)
  * Plugin URI:        http://tangrufus.com/sunny
  * Description:       Automatic CloudFlare Purge
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Tang Rufus
  * Author URI:        http://tangrufus.com
  * Text Domain:       sunny
@@ -101,5 +101,5 @@ function load_helper_classes() {
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-sunny-helper.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-cloudflare-api-helper.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-sunny-purger.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-sunny-api-debugger.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-sunny-api-logger.php' );
 }

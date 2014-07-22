@@ -28,8 +28,8 @@ class Sunny_Post_Purger {
      * @since     1.0.4
      */
     private function __construct() {
-		add_action ( 'save_post', array( $this, 'purge_after_save' ) );
-    }
+		add_action( 'save_post', array( $this, 'purge_after_save' ) );
+	}
 
     /**
      * Return an instance of this class.
@@ -55,10 +55,19 @@ class Sunny_Post_Purger {
 	 * @since 	 1.0.0
 	 */
 	public function purge_after_save( $post_id ) {
-		Sunny_API_Logger::write_triggered_report( 'save_post hook' );
-
 		if ( $this->should_purge( $post_id ) ) {
-			Sunny_Purger::purge_cloudflare_cache_by_url( get_permalink( $post_id ) );
+
+			$post_url = get_permalink( $post_id );
+			$urls = Sunny_Admin_Helper::get_all_terms_links_by_url( $post_url );
+
+            // Add the input url at front
+            array_unshift( $urls, $post_url );
+
+            foreach ( $urls as $url ) {
+
+                Sunny_Purger::purge_cloudflare_cache_by_url( $url );
+
+            }
 		}
 	}
 

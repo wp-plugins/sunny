@@ -56,7 +56,7 @@ class Sunny {
 	public function __construct() {
 
 		$this->plugin_name = 'sunny';
-		$this->version = '1.4.4';
+		$this->version = '1.4.5';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -228,7 +228,7 @@ class Sunny {
 		$plugin_admin = new Sunny_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		// Load admin style sheet and JavaScript.
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 		// Show defered admin notices

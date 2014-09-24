@@ -176,6 +176,22 @@ class Sunny_Callback_Helper {
 	}
 
 	/**
+	 * Url Callback
+	 *
+	 * Renders url fields.
+	 *
+	 * @since 	1.4.0
+	 * @param 	array $args Arguments passed by the setting
+	 * @global 	$sunny_options Array of all the Sunny Options
+	 * @return 	void
+	 */
+	public function url_callback( $args ) {
+
+		$this->input_type_callback( 'url', $args );
+
+	}
+
+	/**
 	 * Input Type Callback
 	 *
 	 * Renders input type fields.
@@ -197,6 +213,7 @@ class Sunny_Callback_Helper {
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
 		$html = '<input type="' . $type . '" class="' . $size . '-text" id="sunny_settings[' . $args['id'] . ']" name="sunny_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
+		$html .= '<br />';
 		$html .= '<label for="sunny_settings[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
 
 		echo $html;

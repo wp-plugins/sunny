@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=tangrufus%
 Tags: cloudflare, cache, CDN, performance, security, spam
 Requires at least: 3.6.0
 Tested up to: 4.0.0
-Stable tag: 1.4.8
+Stable tag: 1.4.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,6 +103,13 @@ Moreover, I am planning to write a mulitsite version. [Drop me a note](http://ta
 
 
 == Changelog ==
+
+= 1.4.9 =
+* Add: WP Human [tutorial](https://wphuman.com/make-cloudflare-supercharge-wordpress-sites/)
+* Add: URL input fields
+* Tweak: Use PHP `filter_var` to validate IPs and check localhost IPs
+* Tweak: Line breaks between input fields and labels
+* Fix: Typo
 
 = 1.4.8 =
 * Tweak: Use WP Human newletter signup form

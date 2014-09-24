@@ -144,7 +144,7 @@ class Sunny_Tools {
 		'title' 	=> __( 'Test Connection', $this->name ),
 		'action' 	=> 'sunny_connection_test',
 		'btn_text' 	=> __( 'Test Connection', $this->name ),
-		'desc'		=> __( "To check if <code>Sunny</code> can connect to CloudFlare's server", $this->name )
+		'desc'		=> __( "To check if <code>Sunny</code> can connect to CloudFlare's server. <a href='https://wphuman.com/make-cloudflare-supercharge-wordpress-sites/#test-connection'>Here</a> is a successful example.", $this->name )
 		);
 
 	$tools[] = array(
@@ -165,8 +165,8 @@ class Sunny_Tools {
 			'post_url' 	=> array(
 				'id'   	=> 'post_url',
 				'name' 	=> __( 'Post URL', $this->name ),
-				'desc' 	=> __( 'The URL you want to purge.', $this->name ),
-				'type' 	=> 'text',
+				'desc' 	=> __( 'The URL you want to purge. Start with <code>http://</code> or <code>https://</code>', $this->name ),
+				'type' 	=> 'url',
 				'std'  	=> get_option( 'home' ),
 				)
 			)

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=tangrufus%
 Tags: cloudflare, cache, CDN, performance, security, spam
 Requires at least: 3.6.0
 Tested up to: 4.0.0
-Stable tag: 1.4.12
+Stable tag: 1.4.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,6 +109,10 @@ Moreover, I am planning to write a mulitsite version. [Drop me a note](https://w
 
 
 == Changelog ==
+
+= 1.4.13 =
+* Tweak: Use `zero_spam_ip_blocked` instead of `zero_spam_found_spam_registration` and `zero_spam_found_spam_comment`
+* Tweak: Sanitize in [Easy Digital Downloads way](https://github.com/easydigitaldownloads/Easy-Digital-Downloads/pull/2533)
 
 = 1.4.12 =
 * New Feature: Integrate with [iThemes Security](https://wordpress.org/plugins/better-wp-security/)

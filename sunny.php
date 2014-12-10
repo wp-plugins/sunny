@@ -8,7 +8,7 @@
  * registers the activation and deactivation functions, and defines a function
  * this starts the plugin.
  *
- * @link              http://tangrufus.com
+ * @link              https://wphuman.com
  * @since             1.0.0
  * @package           Sunny
  *
@@ -16,9 +16,9 @@
  * Plugin Name:       Sunny (Connecting CloudFlare and WordPress)
  * Plugin URI:        http://tangrufus.com/refer/sunny
  * Description:       Automatically clear CloudFlare cache. And, protect your WordPress site at DNS level.
- * Version:           1.4.16
+ * Version:           1.5.0
  * Author:            Tang Rufus
- * Author URI:        http://tangrufus.com/
+ * Author URI:        https://wphuman.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       sunny
@@ -29,9 +29,9 @@
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
 */
-function activate_sunny() {
+function activate_sunny( $network_wide ) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-sunny-activator.php';
-	Sunny_Activator::activate();
+	Sunny_Activator::activate( $network_wide );
 }
 
 /**

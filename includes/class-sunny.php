@@ -9,10 +9,10 @@
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  *
- * @since      1.0.0
  * @package    Sunny
  * @subpackage Sunny/includes
- * @author     Tang Rufus <tangrufus@gmail.com>
+ * @author     Tang Rufus <rufus@wphuman.com>
+ * @since      1.0.0
  */
 class Sunny {
 
@@ -56,7 +56,7 @@ class Sunny {
 	public function __construct() {
 
 		$this->plugin_name = 'sunny';
-		$this->version = '1.4.16';
+		$this->version = '1.5.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -128,6 +128,11 @@ class Sunny {
 		/**
 		 * The class responsible for defining all actions that occur in the Dashboard.
 		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-sunny-updater.php';
+
+		/**
+		 * The class responsible for defining all actions that occur in the Dashboard.
+		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-sunny-admin.php';
 
 		/**
@@ -191,6 +196,7 @@ class Sunny {
 		/**
 		 * The classes responsible for intergating with other plugins.
 		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-sunny-abstract-spam-module.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-sunny-zero-spam.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-sunny-ithemes-security.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-sunny-contact-form-7.php';
@@ -242,6 +248,10 @@ class Sunny {
 		$plugin_basename = plugin_basename( plugin_dir_path( realpath( dirname( __FILE__ ) ) ) . $this->plugin_name . '.php' );
 		$this->loader->add_action( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );
 
+		// Run update scripts
+		$plugin_updater = new Sunny_Updater( $this->get_plugin_name() );
+		$this->loader->add_action( 'admin_init', $plugin_updater, 'update' );
+
 		// Built the option page
 		$plugin_settings = new Sunny_Settings( $this->get_plugin_name() );
 		$this->loader->add_action( 'admin_init' , $plugin_settings, 'register_settings' );
@@ -286,8 +296,6 @@ class Sunny {
 	 */
 	private function define_public_hooks() {
 
-		$this->loader->add_action( 'wp_loaded', 'Sunny_Activator', 'activate', 15 );
-
 		$this->loader->add_action( 'init', 'Sunny_Option', 'set_global_options' );
 
 		$ban_bad_login = new Sunny_Ban_Bad_Login( $this->get_plugin_name() );
@@ -297,13 +305,12 @@ class Sunny {
 		$this->loader->add_filter( 'show_admin_bar', $admin_bar_hider, 'hide' );
 
 		$zero_spam = new Sunny_Zero_Spam( $this->get_plugin_name() );
-		$this->loader->add_action( 'zero_spam_ip_blocked', $zero_spam, 'ban_spam' );
 		$this->loader->add_action( 'zero_spam_found_spam_registration', $zero_spam, 'ban_spam' );
 		$this->loader->add_action( 'zero_spam_found_spam_comment', $zero_spam, 'ban_spam' );
 		$this->loader->add_action( 'zero_spam_found_spam_cf7_form_submission', $zero_spam, 'ban_spam' );
 		$this->loader->add_action( 'zero_spam_found_spam_gf_form_submission', $zero_spam, 'ban_spam' );
-		$this->loader->add_action( 'zero_spam_ip_blocked', $zero_spam, 'ban_spam' );
 		$this->loader->add_action( 'zero_spam_found_spam_buddypress_registration', $zero_spam, 'ban_spam' );
+		$this->loader->add_action( 'zero_spam_ip_blocked', $zero_spam, 'ban_spam' );
 
 		$contact_form_7 = new Sunny_Contact_Form_7( $this->get_plugin_name() );
 		$this->loader->add_filter( 'wpcf7_spam', $contact_form_7, 'ban_spam', 99999 );

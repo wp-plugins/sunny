@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=tangrufus%
 Tags: cloudflare, cache, CDN, performance, security, spam
 Requires at least: 3.6.0
 Tested up to: 4.0.0
-Stable tag: 1.4.14
+Stable tag: 1.4.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ Sunny automatically clears CloudFlare cache. And, protect your WordPress site at
 
 = Features =
 
-* Integrate with [iThemes Security](https://wordpress.org/plugins/better-wp-security/) and [WordPress Zero Spam](https://wordpress.org/plugins/zero-spam)
+* Integrate with [iThemes Security](https://wordpress.org/plugins/better-wp-security/), [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) and [WordPress Zero Spam](https://wordpress.org/plugins/zero-spam)
 * Blacklist IP if attempt to login with bad username
 * Automatically clears corresponding CloudFlare caches whenever a post/page/media attachment is updated, commented or trashed.
 * Purge CloudFlare cache from WordPress admin dashboard
@@ -109,6 +109,13 @@ Moreover, I am planning to write a mulitsite version. [Drop me a note](https://w
 
 
 == Changelog ==
+
+= 1.4.15 =
+* New Feature: Integrate with [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
+* Fix: Zero Spam module early quit before getting IPs
+* Developer: WP Plugin Boilerplate: Change name -> plugin_name for consistency. See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/025d61efee426aadda743d09fcbcaa9db83d76f4)
+* Developer: WP Plugin Boilerplate: Fixing require() -> require_once(). See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/2960b6c1c875d52f625d862b6e1a28dd4e6f4110)
+* Deverloper: WP Plugin Boilerplate:  Create functions for activation and deactivation hooks. See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/e015b9cd7c402167aa526c20be9c53e2aa17845d)
 
 = 1.4.14 =
 * Allow CLI scripts access, see [https://wordpress.org/support/topic/plugin-blocks-cli](https://wordpress.org/support/topic/plugin-blocks-cli)
@@ -245,6 +252,9 @@ Initial Release
 * Initial Alpha Test
 
 == Upgrade Notice ==
+
+= 1.4.15 =
+Sunny now works with Contact Form 7!
 
 = 1.4.12 =
 Sunny now works with iThemes Security!

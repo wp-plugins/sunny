@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=tangrufus%
 Tags: cloudflare, cache, CDN, performance, security, spam
 Requires at least: 3.6.0
 Tested up to: 4.0.0
-Stable tag: 1.4.16
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,9 @@ If you have written an article about `Sunny`, do [let me know](http://tangrufus.
 
 [Tang Rufus](http://tangrufus.com), a freelance developer for hire.
 I make [WP Human](https://wphuman.com) also.
+
+= Requirement =
+* PHP 5.3 or later
 
 == Installation ==
 
@@ -92,6 +95,9 @@ You can disable this behavior via the `General` tab.
 1. Login [CloudFlare](http://cloudflare.com).
 2. Release you IP on the threat control dashborad.
 
+= Parse error: syntax error, unexpected T_FUNCTION in ... =
+If you come across this error, make sure that you have PHP 5.3 or later installed.
+
 = Dose it support mulitsite? =
 
 Confirmed that it doesn't work network wide. While this version of `Sunny` does not intended to support mulitsite, you might want to try activating `Sunny` on a per site basis (WPMU DEV has a step-by-step [tutorial](http://premium.wpmudev.org/manuals/wpmu-manual-2/activating-and-deactivating-plugins-on-a-per-site-basis/)). Please report your findings.
@@ -110,15 +116,20 @@ Moreover, I am planning to write a mulitsite version. [Drop me a note](https://w
 
 == Changelog ==
 
+= 1.5.0 =
+* Developer: Fix update notice not showing
+* Developer: Better file headers
+* Developer: Introduce abstract spam module
+
 = 1.4.16 =
 * New Translation: zh_HK
 
 = 1.4.15 =
 * New Feature: Integrate with [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
 * Fix: Zero Spam module early quit before getting IPs
-* Developer: WP Plugin Boilerplate: Change name -> plugin_name for consistency. See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/025d61efee426aadda743d09fcbcaa9db83d76f4)
-* Developer: WP Plugin Boilerplate: Fixing require() -> require_once(). See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/2960b6c1c875d52f625d862b6e1a28dd4e6f4110)
-* Deverloper: WP Plugin Boilerplate:  Create functions for activation and deactivation hooks. See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/e015b9cd7c402167aa526c20be9c53e2aa17845d)
+* Developer: WP Plugin Boilerplate - Change name -> plugin_name for consistency. See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/025d61efee426aadda743d09fcbcaa9db83d76f4)
+* Developer: WP Plugin Boilerplate - Fixing require() -> require_once(). See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/2960b6c1c875d52f625d862b6e1a28dd4e6f4110)
+* Deverloper: WP Plugin Boilerplate -  Create functions for activation and deactivation hooks. See [this commit](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/commit/e015b9cd7c402167aa526c20be9c53e2aa17845d)
 
 = 1.4.14 =
 * Allow CLI scripts access, see [https://wordpress.org/support/topic/plugin-blocks-cli](https://wordpress.org/support/topic/plugin-blocks-cli)

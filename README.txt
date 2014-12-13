@@ -3,8 +3,8 @@ Contributors: tangrufus, wphuman
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=tangrufus%40gmail%2ecom&lc=HK&item_name=Sunny%20%28CloudFlare%20Management%29%20Plugin%20Donation&item_number=sunny%2edonation%2ewp%2eorg&amount=10%2e00&currency_code=USD&button_subtype=products&no_note=0&add=1&bn=PP%2dShopCartBF%3abtn_cart_LG%2egif%3aNonHostedGuest
 Tags: cloudflare, cache, CDN, performance, security, spam
 Requires at least: 3.6.0
-Tested up to: 4.0.0
-Stable tag: 1.5.0
+Tested up to: 4.1.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,10 +116,22 @@ Moreover, I am planning to write a mulitsite version. [Drop me a note](https://w
 
 == Changelog ==
 
+= 1.5.1 =
+* Fix: Activator incorrect message
+* Fix: `ITSEC_Lockout` constructor missing argument
+* Security: Add black index files
+* Developer: Rename `intergrated_plugin_name` --> `intergrated_plugin_slug`
+* Developer: Remove views files in `public` folder
+* Developer: Refactor `Sunny_Settings` & `Sunny_Sanitization_Helper` with dependency inversion principle
+* Developer: Rename folder `plublic` to `modules`\
+* Developer: Modularize `Sunny_iThemes_Security` and `Sunny_Zero_Spam`
+* Developer: `Sunny_Updater` constructor takes version number
+
 = 1.5.0 =
-* Developer: Fix update notice not showing
+* Fix: update notice not showing
 * Developer: Better file headers
 * Developer: Introduce abstract spam module
+* Deprecated: plugin_screen_hook_suffix
 
 = 1.4.16 =
 * New Translation: zh_HK
